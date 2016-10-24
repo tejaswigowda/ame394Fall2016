@@ -8,6 +8,19 @@ var port = 8080;
 var db = require('./node_modules/mongoskin').db('mongodb://user:pwd@127.0.0.1:27017/sensorData');
 
 
+app.get('/addSensorData', function(req, res){
+  var info = req.query;
+      db.collection('data').insert(info, function(err3, r3) {
+        if (err3) {
+          res.send("0");            
+        }
+         else {       
+          res.send("1");
+        }   
+      });
+});
+
+
 app.use(methodOverride());
 app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
