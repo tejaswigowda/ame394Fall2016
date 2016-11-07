@@ -52,14 +52,26 @@ function loadFile(filename, callback)
 
 
 
-function start(){
- var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
-  }); 
+var start = function(){
+	loadFile("./getData?startTime=0", function(res){
+	    var data = JSON.parse(res);
+		console.log(data);
+	    /*var graphData =  [
+		['data1', 30, 200, 100, 400, 150, 250],
+		['data2', 50, 20, 10, 40, 15, 25]
+	      ];*/
+
+	var graphData = [
+		['Temperature'],
+		['Moisture'],
+		['Humidity'],
+		['Light']
+	]
+		 var chart = c3.generate({
+		    bindto: '#chart',
+		    data: {
+		      columns: graphData
+		    }
+		  }); 
+	})
 }
