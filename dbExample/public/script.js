@@ -50,10 +50,19 @@ function loadFile(filename, callback)
 }
 
 
-
+var dtChanged = function(){
+  start();
+}
 
 var start = function(){
-	loadFile("./getData?startTime=0", function(res){
+  var rst = document.getElementById("dt").value;
+  if(rst.length == 0){
+    var rst = new Date().getTime();
+    document.getElementById("dt").value = new moment(rst).format("YYYY-MM-DDThh:mm");
+  }
+  rst = new Date(rst).getTime()
+
+	loadFile("./getData?startTime=" + rst, function(res){
 	    var data = JSON.parse(res);
 	    /*var graphData =  [
 		['data1', 30, 200, 100, 400, 150, 250],
