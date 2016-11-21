@@ -12,9 +12,9 @@ app.get('/setReading', function(req, res){
   reading = info.r;
   res.send("1");
 });
-
 app.get('/getReading', function(req, res){
   res.send(reading);
+
 });
 
 app.use(methodOverride());
