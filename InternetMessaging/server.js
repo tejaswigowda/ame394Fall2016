@@ -7,19 +7,15 @@ var hostname = process.env.HOSTNAME || 'localhost';
 var port = 8080;
 var reading = 0;
 
-
 app.get('/setReading', function(req, res){
   var info = req.query;
   reading = info.r;
   res.send("1");
 });
 
-
 app.get('/getReading', function(req, res){
   res.send(reading);
 });
-
-
 
 app.use(methodOverride());
 app.use(bodyParser());
