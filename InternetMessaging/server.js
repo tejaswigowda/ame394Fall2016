@@ -13,7 +13,9 @@ app.get('/setReading', function(req, res){
   res.send("1");
 });
 app.get('/getReading', function(req, res){
-  res.send(reading);
+  res.writeHead(200, {"Content-Type": "text/plain"});
+  res.write(reading);
+  res.end()
 
 });
 
