@@ -15,11 +15,11 @@ app.get('/buttonPressed', function(req, res){
   else{
     reading = 1;
   }
-  res.send("1");
+  res.send(String(reading));
 });
 app.get('/getState', function(req, res){
   res.writeHead(200, {"Content-Type": "text/plain"});
-  res.write(reading);
+  res.write(String(reading));
   res.end()
 
 });
