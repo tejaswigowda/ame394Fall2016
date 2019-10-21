@@ -31,7 +31,7 @@ ComfortState cf;
 /** Flag if task should run */
 bool tasksEnabled = false;
 /** Pin number for DHT11 data pin */
-int dhtPin = 17;
+int dhtPin = 21;
 
 /**
  * initTemp
